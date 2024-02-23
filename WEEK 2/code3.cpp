@@ -1,57 +1,47 @@
-#include <iostream>
-#include <vector>
+#include <iostream> 
+#include<vector>
+
 using namespace std;
-class indices
-{
-public :
-   int triplets(vector <int> &arr,int key)
+class Main{
+    public:
+    int countPair(vector<int> arr,int k)
     {
-        int i=0,j=0,c=0;
-        vector <int>ans(3,-1);
-        for(int k=arr.size()-1;k>=0;k--)
+        for(int i=0;i<arr.size()-1;i++)
         {
-            i=0;
-            j=k-1;
-            while(i<j)
+            for(int j=i+1;j<arr.size();j++)
             {
-                if(key==abs(arr[j]-arr[i]))
+                if(abs(arr[i]-arr[j])==k)
                 {
-                    c++;
+                    count++;
                 }
-                else if(arr[k]>abs(arr[i]-arr[j]))
-                    i++;
-                else
-                    j--;
             }
         }
-        return c;
+        return count;
     }
 };
 int main()
 {
-    int n;
-    cout<<"enter n:";
-    cin >> n;
-    indices ob[n];
-    vector < int >ar;
-    int a;
-    for (int i = 0; i < n; i++)
-	{
-	  int siz;
-	  cout<<"enter size";
-	  cin >> siz;
-	  for (int j = 0; j < siz; j++)
-		{
-		    cout<<"enter num";
-            cin >> a;
-            ar.push_back (a);
-		}
-		int key;
-		cout<<"enter key";
-		cin>>key;
-	    cout<<ob[i].triplets(ar,key);
-        ar.clear ();
-	}
-  return 0;
-}
+    int t;
+    cout<<"ENter Test Case"<<endl;
+    cin>>t;
+    Main ob[t];
+    for(int i=0;i<t;i++)
+    {
+        int n;
+        cout<<"Enter size of vector";
+        cin>>n;
+        vector<int> arr;
+        for(int j=0;j<n;j++)
+        {
+            int a;
+            cin>>a;
+            arr.push_back(a);
+        }
+        int k;
+        cout<<"Enter value of k";
+        cin>>k;
+        cout<<ob[i].countPair(arr,k);
+        arr.clear();
 
+    }
+}
