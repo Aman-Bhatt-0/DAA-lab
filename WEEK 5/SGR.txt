@@ -1,0 +1,26 @@
+#include <stdio.h>
+using namespace std;
+class Main{
+    public :
+    void findele(vector <int> &arr1,vector<int> &arr2)
+    {
+        int i=0,j=0;
+        while(i<arr1.size()||j<arr2.size())
+        {
+            if(arr[i]==arr[j])
+            {
+                cout<<arr[i];
+                i++;
+                j++;
+            }
+            else if(arr[i]>arr[j])
+            {
+                j++;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+}
